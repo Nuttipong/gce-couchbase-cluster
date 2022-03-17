@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  node1:
+    image: couchbase:community-7.0.2 # enterprise-7.0.2 / couchbase:community-7.0.2
+    platform: linux/amd64
+    container_name: node1
+    ports:
+      - "8091-8096:8091-8096"
+      - "11210:11210"
+    restart: always
+    volumes:
+      - ~/couchbase/node1:/opt/couchbase/var
+  node2:
+    image: couchbase:community-7.0.2
+    platform: linux/amd64
+    container_name: node2
+    restart: always
+    volumes:
+      - ~/couchbase/node2:/opt/couchbase/var
+  node3:
+    image: couchbase:community-7.0.2
+    platform: linux/amd64
+    container_name: node3
+    restart: always
+    volumes:
+      - ~/couchbase/node3:/opt/couchbase/var
